@@ -1,0 +1,21 @@
+<form>
+    <div [hidden]= "true">
+        <label>ID Catégorie</label>
+        <input type="text" [(ngModel)]="categorie.idCat" name="idCategorie" class="form-control w-25">
+    </div>
+    <div>
+        <label>Nom Catégorie</label>
+        <input type="text" [(ngModel)]="categorie.nomCat" name="nomCategorie" class="form-control"
+            placeholder="Entrez un nom de catégorie...">
+    </div>
+    <div *ngIf="ajout; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+        <button type="submit" [disabled]="!categorie.nomCat" class="btn btn-success"
+            (click)="saveCategorie()">Ajouter</button>
+    </ng-template>
+    <ng-template #elseBlock>
+        <button type="submit" [disabled]="!categorie.nomCat" class="btn btn-success"
+            (click)="saveCategorie()">Modifier</button>
+    </ng-template>
+
+</form>
